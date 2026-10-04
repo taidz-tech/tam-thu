@@ -18,14 +18,18 @@
       --ink: #2a1220;
       --paper: rgba(255, 248, 246, 0.86);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     html, body { min-height: 100%; }
+
     body {
       font-family: "Be Vietnam Pro", system-ui, sans-serif;
       color: var(--ink);
       overflow-x: hidden;
       background: #1a0612;
     }
+
     .sky {
       position: fixed;
       inset: 0;
@@ -37,17 +41,20 @@
         linear-gradient(160deg, #2a0b1c 0%, #4a1230 40%, #1d0a18 100%);
       animation: hueShift var(--speed) linear infinite;
     }
+
     @keyframes hueShift {
       0% { filter: hue-rotate(0deg) saturate(1.05); }
       50% { filter: hue-rotate(18deg) saturate(1.2); }
       100% { filter: hue-rotate(0deg) saturate(1.05); }
     }
+
     canvas#spark {
       position: fixed;
       inset: 0;
       z-index: 1;
       pointer-events: none;
     }
+
     .veil {
       position: fixed;
       inset: 0;
@@ -57,6 +64,7 @@
         radial-gradient(circle at 20% 80%, rgba(255, 210, 180, 0.08), transparent 40%),
         repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.015) 3px);
     }
+
     .wrap {
       position: relative;
       z-index: 3;
@@ -64,6 +72,7 @@
       margin: 0 auto;
       padding: 36px 20px 80px;
     }
+
     header.hero {
       text-align: center;
       padding: 48px 28px 36px;
@@ -74,6 +83,7 @@
       box-shadow: 0 30px 80px rgba(80, 10, 40, 0.35), inset 0 1px 0 rgba(255,255,255,0.4);
       overflow: hidden;
     }
+
     header.hero::before {
       content: "";
       position: absolute;
@@ -85,6 +95,7 @@
       background: radial-gradient(circle, hsl(var(--glow) 90% 70% / 0.55), transparent 70%);
       pointer-events: none;
     }
+
     .stamp {
       display: inline-flex;
       align-items: center;
@@ -99,6 +110,7 @@
       border-radius: 999px;
       border: 1px solid rgba(255, 220, 170, 0.45);
     }
+
     h1.title {
       font-family: "Great Vibes", cursive;
       font-size: clamp(52px, 9vw, 92px);
@@ -108,6 +120,7 @@
       margin: 18px 0 6px;
       position: relative;
     }
+
     .subtitle {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(18px, 2.4vw, 26px);
@@ -115,12 +128,14 @@
       color: #ffe8d2;
       margin-bottom: 22px;
     }
+
     .meta {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
     }
+
     .chip {
       background: rgba(255, 248, 244, 0.88);
       color: #5a2038;
@@ -130,6 +145,7 @@
       font-weight: 500;
       border: 1px solid rgba(255, 200, 170, 0.7);
     }
+
     .letter {
       margin-top: 28px;
       background: var(--paper);
@@ -138,12 +154,15 @@
       box-shadow: 0 24px 60px rgba(40, 8, 20, 0.28);
       border: 1px solid rgba(255, 220, 200, 0.7);
     }
+
     .greet {
       font-size: 17px;
       line-height: 1.85;
       color: #3b1a28;
     }
+
     .greet strong { color: #9b2148; }
+
     .quote {
       margin: 22px 0 8px;
       padding: 16px 18px;
@@ -153,4 +172,456 @@
       font-style: italic;
       color: #5c2438;
     }
+
     h2.section {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      margin: 36px 0 16px;
+      text-align: center;
+      color: #7a1f3d;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    article.card {
+      position: relative;
+      padding: 22px 20px 20px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fff, #fff6f3);
+      border: 1px solid rgba(180, 80, 90, 0.14);
+      box-shadow: 0 12px 28px rgba(90, 20, 40, 0.08);
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    article.card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 40px rgba(90, 20, 40, 0.16);
+    }
+
+    article.card::after {
+      content: attr(data-mark);
+      position: absolute;
+      right: 10px;
+      top: 4px;
+      font-size: 42px;
+      opacity: 0.16;
+    }
+
+    .who {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, hsl(var(--c1) 70% 52%), hsl(var(--c2) 75% 48%));
+      box-shadow: 0 8px 16px rgba(160, 40, 70, 0.28);
+    }
+
+    .who h3 {
+      font-size: 18px;
+      color: #7a1a38;
+    }
+
+    .who span {
+      display: block;
+      font-size: 12px;
+      color: #a05a6c;
+      font-weight: 500;
+    }
+
+    article.card p {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: #3f2230;
+    }
+
+    .finale {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(155, 30, 70, 0.92), rgba(90, 20, 50, 0.9)),
+        radial-gradient(circle at 80% 20%, rgba(255, 210, 140, 0.35), transparent 40%);
+      color: #fff8f2;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(70, 10, 30, 0.35);
+    }
+
+    .finale p {
+      font-size: 16.5px;
+      line-height: 1.85;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    footer.sign {
+      margin-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+
+    .place {
+      color: #6a3348;
+      font-size: 14px;
+    }
+
+    .seal {
+      text-align: right;
+    }
+
+    .seal .cursive {
+      font-family: "Great Vibes", cursive;
+      font-size: 40px;
+      color: #9b2148;
+      line-height: 1;
+    }
+
+    .seal small {
+      display: block;
+      margin-top: 4px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: #8a4a5c;
+    }
+
+    .wax {
+      margin-top: 10px;
+      display: inline-block;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #e05a6a, #8b1230 70%);
+      color: #ffe9c8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-align: center;
+      line-height: 72px;
+      box-shadow: 0 8px 0 #5c0d22, 0 12px 24px rgba(90, 10, 30, 0.35);
+      transform: rotate(-8deg);
+    }
+
+    .controls {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 8;
+      width: min(280px, calc(100vw - 24px));
+      background: rgba(20, 6, 14, 0.72);
+      color: #fff6ee;
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 210, 180, 0.28);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+
+    .controls h4 {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #ffd9b8;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      align-items: center;
+      gap: 8px;
+      margin: 8px 0;
+      font-size: 12px;
+    }
+
+    input[type="range"] { width: 100%; accent-color: #ffb07a; }
+
+    .presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .presets button, .toggle {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    .presets button:hover, .toggle:hover { background: rgba(255,255,255,0.22); }
+
+    .music-btn {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 8;
+      border: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff7a9a, #ffb56b);
+      box-shadow: 0 10px 24px rgba(255, 80, 120, 0.4);
+      font-size: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .letter { padding: 22px 16px; }
+      .controls { right: 8px; bottom: 76px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sky" id="sky"></div>
+  <canvas id="spark"></canvas>
+  <div class="veil"></div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="stamp">Thông điệp đặc biệt · 20 / 10</div>
+      <h1 class="title">Kết án</h1>
+      <p class="subtitle">Gửi tập thể nữ nhân ngày Phụ nữ Việt Nam</p>
+      <div class="meta">
+        <span class="chip">THPT Nam Hà</span>
+        <span class="chip">Lớp 12A01</span>
+        <span class="chip">Năm học 2026–2027</span>
+        <span class="chip">Đại diện: tập thể nam 12A01</span>
+      </div>
+    </header>
+
+    <section class="letter">
+      <p class="greet">
+        Alo alo, xin chào toàn thể các bạn nữ xinh đẹp của <strong>12A01</strong>!
+        Nhân ngày <strong>20/10</strong>, thay mặt hội anh em, tôi xin mạn phép lên sóng vài phút để gửi gắm chút tâm tư.
+      </p>
+      <p class="quote">
+        “Đồng hành cùng chị em lớp mình vui thì vui thật, nhưng nhiều lúc anh em cứ trêu nhau: đi học mà kịch tính chẳng khác gì đang chơi game sinh tồn 1 mạng. Lơ ngơ, sểnh miệng ra một phát là bốc hơi khỏi trái tim chị em như chơi!”
+      </p>
+
+      <h2 class="section">Năm lời “kết án” ngọt ngào</h2>
+      <div class="grid">
+        <article class="card" data-mark="♥">
+          <div class="who">
+            <div class="avatar">H</div>
+            <div>
+              <h3>Lớp trưởng Hiền</h3>
+              <span>Thả một cái tim to đùng</span>
+            </div>
+          </div>
+          <p>Lớp trưởng quá đỉnh, lúc nào cũng quan tâm sát sao anh em — từ sơ đồ chiến thuật, chỗ ngồi đẹp hay xấu, ai thuộc nhóm bạn nào cũng nắm rõ như lòng bàn tay.</p>
+        </article>
+
+        <article class="card" data-mark="∞">
+          <div class="who">
+            <div class="avatar">M</div>
+            <div>
+              <h3>Mai</h3>
+              <span>Sức chịu đựng vô cực</span>
+            </div>
+          </div>
+          <p>Anh em con trai lớp mình nhiều khi cứ thích ra vẻ, hơi “sĩ” diện một tí. Thế mà Mai toàn phải ngồi với mấy thằng sĩ ấy mà vẫn chịu đựng được — sức chịu đựng quả là vô cực!</p>
+        </article>
+
+        <article class="card" data-mark="✧">
+          <div class="who">
+            <div class="avatar">N</div>
+            <div>
+              <h3>Ngọc</h3>
+              <span>Xinh · giỏi · vượng đào hoa</span>
+            </div>
+          </div>
+          <p>Vừa xinh vừa học giỏi nên xung quanh lúc nào cũng rôm rả. Phong thủy chỗ ngồi với mấy đứa có bồ rất vượng đào hoa. Mong Ngọc lúc nào cũng vui vẻ, bớt đi chút sắc sảo — đôi lúc chê trách sắc quá làm anh em rén.</p>
+        </article>
+
+        <article class="card" data-mark="✿">
+          <div class="who">
+            <div class="avatar">V</div>
+            <div>
+              <h3>Vy</h3>
+              <span>Gu nhẹ nhàng bình yên</span>
+            </div>
+          </div>
+          <p>Vy toàn ngồi với mấy đứa hiền. Nhưng 20/10 rồi, Vy cứ bạo dạn lên: có gì không ưng thì cứ trực tiếp mắng thẳng mặt anh em, đừng ngại ngùng nói ở phía sau — anh em không biết đường nào mà lần.</p>
+        </article>
+
+        <article class="card" data-mark="★">
+          <div class="who">
+            <div class="avatar">P</div>
+            <div>
+              <h3>Phương</h3>
+              <span>Đặc biệt tuyên dương</span>
+            </div>
+          </div>
+          <p>Công nhận Phương kiên nhẫn thật khi suốt ngày phải ngồi với mấy đứa… nói nhiều. Bọn con trai vui tính, phát ngôn vô tri, “não” load hơi chậm, nhưng Phương bao dung, không thèm đi kể xấu hay so sánh anh em với ai bao giờ (chắc thế!). Anh em biết ơn lắm!</p>
+        </article>
+      </div>
+
+      <div class="finale">
+        <p>
+          Tóm lại là, chúc một nửa của 12A01 lúc nào cũng xinh xắn, vui vẻ, thân thiện.
+          Mong tập thể mình sẽ mãi đoàn kết, sống thật với nhau để game này lúc nào cũng là game vui,
+          chứ không ai phải “trả nghiệp” nhé! Cảm ơn các bạn!
+        </p>
+      </div>
+
+      <footer class="sign">
+        <div class="place">
+          Nam Hà, ngày 20 tháng 10 năm 2026
+        </div>
+        <div class="seal">
+          <div class="cursive">Tập thể nam 12A01</div>
+          <small>Đã ký và đóng dấu sự thật</small>
+          <div class="wax">20.10</div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <button class="music-btn" id="burst" title="Thả tim">♥</button>
+
+  <aside class="controls" aria-label="Tùy chỉnh nền động">
+    <h4>Nền động tùy chỉnh</h4>
+    <div class="row"><span>Hồng chính</span><input id="c1" type="range" min="280" max="360" value="330" /></div>
+    <div class="row"><span>Cam phụ</span><input id="c2" type="range" min="0" max="40" value="12" /></div>
+    <div class="row"><span>Ánh vàng</span><input id="glow" type="range" min="20" max="55" value="42" /></div>
+    <div class="row"><span>Tốc độ</span><input id="spd" type="range" min="8" max="40" value="18" /></div>
+    <div class="row"><span>Mật độ</span><input id="dens" type="range" min="20" max="160" value="70" /></div>
+    <div class="presets">
+      <button data-p="330,12,42">Hoa hồng</button>
+      <button data-p="280,330,48">Tím sương</button>
+      <button data-p="350,28,38">Hoàng hôn</button>
+      <button data-p="200,320,50">Ngọc bích</button>
+    </div>
+  </aside>
+
+  <script>
+    const root = document.documentElement;
+    const sky = document.getElementById("sky");
+    const map = { c1: "--c1", c2: "--c2", glow: "--glow" };
+
+    ["c1", "c2", "glow"].forEach((id) => {
+      document.getElementById(id).addEventListener("input", (e) => {
+        root.style.setProperty(map[id], e.target.value);
+      });
+    });
+
+    document.getElementById("spd").addEventListener("input", (e) => {
+      sky.style.setProperty("--speed", e.target.value + "s");
+    });
+
+    document.querySelectorAll(".presets button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const [a, b, c] = btn.dataset.p.split(",");
+        document.getElementById("c1").value = a;
+        document.getElementById("c2").value = b;
+        document.getElementById("glow").value = c;
+        root.style.setProperty("--c1", a);
+        root.style.setProperty("--c2", b);
+        root.style.setProperty("--glow", c);
+      });
+    });
+
+    const canvas = document.getElementById("spark");
+    const ctx = canvas.getContext("2d");
+    let w, h, particles, density = 70;
+
+    function resize() {
+      w = canvas.width = innerWidth;
+      h = canvas.height = innerHeight;
+      spawn();
+    }
+
+    function spawn() {
+      particles = Array.from({ length: density }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2.4 + 0.4,
+        vy: -(Math.random() * 0.45 + 0.12),
+        vx: (Math.random() - 0.5) * 0.35,
+        a: Math.random() * Math.PI * 2,
+        kind: Math.random() > 0.72 ? "heart" : "dot",
+      }));
+    }
+
+    document.getElementById("dens").addEventListener("input", (e) => {
+      density = Number(e.target.value);
+      spawn();
+    });
+
+    function heart(x, y, s, a) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(Math.sin(a) * 0.2);
+      ctx.scale(s, s);
+      ctx.beginPath();
+      ctx.moveTo(0, 3);
+      ctx.bezierCurveTo(-5, -2, -3, -6, 0, -3.2);
+      ctx.bezierCurveTo(3, -6, 5, -2, 0, 3);
+      ctx.fillStyle = "rgba(255, 170, 190, 0.55)";
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.a += 0.02;
+        if (p.y < -10) p.y = h + 10;
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
+        if (p.kind === "heart") heart(p.x, p.y, 0.7 + p.r * 0.25, p.a);
+        else {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(255, 236, 210, 0.55)";
+          ctx.fill();
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    addEventListener("resize", resize);
+    resize();
+    tick();
+
+    document.getElementById("burst").addEventListener("click", () => {
+      for (let i = 0; i < 28; i++) {
+        particles.push({
+          x: innerWidth * 0.5 + (Math.random() - 0.5) * 80,
+          y: innerHeight - 40,
+          r: Math.random() * 3 + 1,
+          vy: -(Math.random() * 3.5 + 1.5),
+          vx: (Math.random() - 0.5) * 2.2,
+          a: Math.random() * 6,
+          kind: "heart",
+        });
+      }
+    });
+  </script>
+</body>
+</html>
